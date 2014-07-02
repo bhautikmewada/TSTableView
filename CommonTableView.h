@@ -2,8 +2,8 @@
 //  CommonTableView.h
 //  MyExample
 //
-//  Created by Romit Mewada on 6/4/14.
-//  Copyright (c) 2014 IDeAL Experiential Learning ℗ Ltd. All rights reserved.
+//  Created by Bhautik Mewada on 6/4/14.
+//  Copyright (c) 2014 True Swan Software. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,16 +16,18 @@
 /** property for didSelectRow block */
 @property(nonatomic,copy) void (^didSelectRow) (NSIndexPath *indexPath);
 
+@property(nonatomic,copy) CGFloat (^heightForRowAtIndex) (NSIndexPath *indexPath);
+
 /** count of section & row of TableView */
 @property(nonatomic,readonly)NSInteger sectionCount,rowCount;
 
 /** height of row at indexPath */
-@property(nonatomic,readonly)CGFloat heightOfRow;
+//@property(nonatomic,readonly)CGFloat heightOfRow;
 
 /** Implement tableView With delegate method & dataSource Method*/
 -(void)tableViewWithNumberOfSections:(NSInteger)sections numberOfRowsInSection:(NSInteger)rows tableViewCell:(UITableViewCell *(^)(UITableView *tableView,NSIndexPath *indexPath))tableCell didSelectRowAtPath:(void(^)(NSIndexPath *indexPath))selectRow;
 
 /** Implement tableView With delegate method & dataSource Method*/
--(void)tableViewWithNumberOfSections:(NSInteger)sections numberOfRowsInSection:(NSInteger)rows tableViewCell:(UITableViewCell *(^)(UITableView *tableView,NSIndexPath *indexPath))tableCell didSelectRowAtPath:(void(^)(NSIndexPath *indexPath))selectRow heightForRowAtIndexPath:(CGFloat)rowHeight;
+-(void)tableViewWithNumberOfSections:(NSInteger)sections numberOfRowsInSection:(NSInteger)rows tableViewCell:(UITableViewCell *(^)(UITableView *tableView,NSIndexPath *indexPath))tableCell didSelectRowAtPath:(void(^)(NSIndexPath *indexPath))selectRow heightForRowAtIndexPath:(CGFloat (^)(NSIndexPath *indexPath))rowHeight;
 
 @end

@@ -31,11 +31,10 @@
     self.didSelectRow = selectRow;
     _sectionCount = sections;
     _rowCount = rows;
-    _heightOfRow = 44;
 }
 
 /** Implement tableView With delegate method & dataSource Method*/
--(void)tableViewWithNumberOfSections:(NSInteger)sections numberOfRowsInSection:(NSInteger)rows tableViewCell:(UITableViewCell *(^)(UITableView *tableView,NSIndexPath *indexPath))tableCell didSelectRowAtPath:(void(^)(NSIndexPath *indexPath))selectRow heightForRowAtIndexPath:(CGFloat)rowHeight
+-(void)tableViewWithNumberOfSections:(NSInteger)sections numberOfRowsInSection:(NSInteger)rows tableViewCell:(UITableViewCell *(^)(UITableView *tableView,NSIndexPath *indexPath))tableCell didSelectRowAtPath:(void(^)(NSIndexPath *indexPath))selectRow heightForRowAtIndexPath:(CGFloat(^)(NSIndexPath *indexPath))rowHeight
 {
     self.delegate = self;
     self.dataSource = self;
@@ -44,7 +43,7 @@
     self.didSelectRow = selectRow;
     _sectionCount = sections;
     _rowCount = rows;
-    _heightOfRow = rowHeight;
+    self.heightForRowAtIndex = rowHeight;
 }
 
 #pragma mark TableView DataSource Methods
@@ -78,7 +77,7 @@
 /** set height for Row at IndexPath */
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _heightOfRow;
+    return self.heightForRowAtIndex(indexPath);
 }
 
 /*
