@@ -44,7 +44,7 @@ just call block method to fill UITableView
     } ];```
 
 
-/**cell height block. Height is not Dynamic, i am working on that*/
+/**cell height block.*/
 
     [tableView tableViewWithNumberOfSections:_numberOfSection numberOfRowsInSection:_numberOfRowInSection    tableViewCell:^UITableViewCell *(UITableView *tableView,NSIndexPath *indexPath){
 
@@ -57,7 +57,11 @@ just call block method to fill UITableView
         
         /**call when cell selected at Index*/
         
-        } heightForRowAtIndexPath:44.0f];```
+        } heightForRowAtIndexPath:^CGFloat(NSIndexPath *indexPath){
+        
+        /** set dynamic height of cell*/
+        
+        }];```
 
 For more support you can mail me: bhautik.mewada@gmail.com.
 True Swan Software.
