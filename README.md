@@ -1,4 +1,4 @@
-CommonTableView
+TSTableView
 ===============
 
 just call block method to fill UITableView
