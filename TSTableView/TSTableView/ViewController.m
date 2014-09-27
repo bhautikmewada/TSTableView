@@ -26,7 +26,8 @@
         if(!cell)
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:img];
-            NSLog(@"%@",[NSString stringWithFormat:@"%ld.png",indexPath.row + 1]);
+            cell.textLabel.text = [NSString stringWithFormat:@"cell %@", img];
+            NSLog(@"%@",[NSString stringWithFormat:@"%ld",indexPath.row + 1]);
         }
         return cell;
         
