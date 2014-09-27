@@ -19,7 +19,7 @@
     
     [self.tableView tableViewWithNumberOfSections:1 numberOfRowsInSection:10 tableViewCell:^UITableViewCell*(UITableView *tableView,NSIndexPath *indexPath){
         
-        NSString *img = [NSString stringWithFormat:@"%ld.png",indexPath.row + 1];
+        NSString *img = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:img];
         
